@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@200;400;500&display=swap');
+
+/* Reset some default styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
