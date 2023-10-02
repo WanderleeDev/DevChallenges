@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page - devchallenges.io</title>
+    <link rel="icon" href="assets/img/contact-form-icon.svg" type="image/x-icon" sizes="any">
+    <meta name="description" content="Simplify data collection with our easy-to-use form. Streamline your process quickly and effortlessly!">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;300;400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          font-family: 'Be Vietnam Pro', sans-serif;
+        }
+      }
+      @layer utilities {
+          .bg-page{
+            background-image: url(assets/img/bg-image.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+          }
+          .w-responsive {
+            width: min(100%, 64rem);
+          }
+          .w-header {
+            width: min(100%, 22rem);
+          }
+        }
+  </style>
+</head>
+<body class="bg-page">
+    <main id="app" class="grid place-items-center text-white pt-8 pb-20 gap-16 px-4 sm:px-8 lg:px-16">
+    </main>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
