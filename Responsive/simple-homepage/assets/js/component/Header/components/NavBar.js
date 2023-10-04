@@ -10,7 +10,7 @@ const NavBar = () => {
     ]
   return (`
     <nav>
-      <ul>
+      <ul class="text-[var(--text-gray)]">
         ${listItems.map( item => (`
           <li>${item}</li>
         `)).join("")}

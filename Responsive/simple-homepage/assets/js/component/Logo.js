@@ -5,7 +5,7 @@ const Logo = () => {
     rel="noopener noreferrer" 
     aria-label="go to devChallenges"
     class="justify-self-center">
-    <img class="bg-black p-2 rounded-lg" src="/src/assets/svg/logo.svg" alt="logo">
+    <img class="bg-black p-2 rounded-lg" src="/assets/svg/logo.svg" alt="logo">
   </a>`).trim()
 }
 
