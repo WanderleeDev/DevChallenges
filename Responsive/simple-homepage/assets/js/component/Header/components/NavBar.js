@@ -9,13 +9,15 @@ const NavBar = () => {
       'Contact'
     ]
   return (`
-    <nav>
-      <ul class="text-[var(--text-gray)]">
-        ${listItems.map( item => (`
-          <li>${item}</li>
-        `)).join("")}
-      </ul>
-      ${BtnDarkMode()}
+    <nav class="flex justify-between gap-4 relative">
+      <div class="absolute">
+        <ul class="text-[var(--text-gray)]">
+          ${listItems.map( item => (`
+            <li>${item}</li>
+          `)).join("")}
+        </ul>
+        ${BtnDarkMode()}
+      </div>
       ${BtnMobile()}
     </nav>
   `)

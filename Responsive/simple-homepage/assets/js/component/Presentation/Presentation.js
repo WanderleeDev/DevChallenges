@@ -14,7 +14,7 @@ const Presentation = () => {
   ]
 
   return (`
-  <section class="grid gap-8">
+  <section class="grid gap-8 xl:col-start-1 xl:col-end-2 xl:row-start-2 xl:row-end-3">
     <header class="text-[var(--color-dark-2)]">
       <span class="font-semibold uppercase text-sm">
         😎  Simple way to communicate
