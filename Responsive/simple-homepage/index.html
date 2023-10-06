@@ -8,7 +8,7 @@
     <meta name="description" content="Discover what our satisfied customers have to say about our products/services. Read real testimonials and positive experiences from people who have trusted us. Join our community of happy customers today!">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
       :root {
@@ -19,7 +19,7 @@
         --color-light-1: #FFFFFF;
         --text-gray: #909193;
         --color-light-2: #F2F9FE;
-        --a: #6b7486;
+        --text-clr: #6b7486;
         --scaleFull: 1;
         --scaleNone: 0;
       }
@@ -38,18 +38,22 @@
           .nav-responsive {
             width: min(100%, 28rem);
           }
+          .showMenuMobile {
+            transform: translateX(0%);
+          }
+          .scaleIcon {
+            --scaleFull: 0;
+            --scaleNone: 1;
+          }
         }
+        
         .dark {
           --color-dark-1: #f2f9fe;
           --color-light-2: #111729;
           --color-dark-2: #FFFFFF;
           --color-light-1: #223344;
         }
-        .showMenuMobile {
-          --scaleFull: 0;
-          --scaleNone: 1;
-          transform: translateX(0%);
-        }
+        
     </style>
 </head>
 <body class="bg-[var(--color-light-2)] font-Poppins text-[var(--text-primary)]">

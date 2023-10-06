@@ -1,9 +1,9 @@
 const BtnMobile = () => {
 
   return (`
-    <button class="grid text-[var(--color-dark-2)] cursor-pointer xl:hidden">
-      <span class="row-start-1 col-start-1 scale-[1]">☰</span>
-      <span class="row-start-1 col-start-1 scale-0">ｘ</span>
+    <button id="btnMobile" class="grid cursor-pointer mt-1 xl:hidden">
+      <span id="openIcon" class="text-[var(--color-dark-2)] row-start-1 col-start-1 scale-[var(--scaleFull)]">☰</span>
+      <span id="closeIcon" class="row-start-1 col-start-1 scale-[var(--scaleNone)]">ｘ</span>
     </button>
   `)
 }
