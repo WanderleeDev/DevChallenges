@@ -20,6 +20,8 @@
         --text-gray: #909193;
         --color-light-2: #F2F9FE;
         --a: #6b7486;
+        --scaleFull: 1;
+        --scaleNone: 0;
       }
 
       @layer utilities {
@@ -33,11 +35,25 @@
           .font-Poppins {
             font-family: 'Poppins', sans-serif;
           }
+          .nav-responsive {
+            width: min(100%, 28rem);
+          }
+        }
+        .dark {
+          --color-dark-1: #f2f9fe;
+          --color-light-2: #111729;
+          --color-dark-2: #FFFFFF;
+          --color-light-1: #223344;
+        }
+        .showMenuMobile {
+          --scaleFull: 0;
+          --scaleNone: 1;
+          transform: translateX(0%);
         }
     </style>
 </head>
 <body class="bg-[var(--color-light-2)] font-Poppins text-[var(--text-primary)]">
-    <main id="app" class="grid items-center p-8 gap-16 max-w-7xl mx-auto lg:grid-cols-2">
+    <main id="app" class="grid items-center p-8 gap-16 max-w-7xl mx-auto xl:grid-cols-2">
     </main>
     <script type="module" src="index.js"></script>
 </body>
