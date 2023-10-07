@@ -1,0 +1,28 @@
+.container {
+  width: max-content;
+  display: flex;
+  margin: 1.5rem auto;
+  border: solid .18rem var(--bg-card);
+  border-radius: .7rem;
+  overflow: hidden;
+  
+  .container-btn {
+    width: 4rem;
+    height: 3rem;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center center;
+    cursor: pointer;
+    transition: backdrop-filter linear .1s;
+    
+    &:hover, &:focus {
+      backdrop-filter: invert(80%);
+    }
+    &:first-child {
+      border-right: solid .09rem var(--bg-card);
+    }
+    &:last-child {
+      border-left: solid .09rem var(--bg-card);
+    }
+  }
+}

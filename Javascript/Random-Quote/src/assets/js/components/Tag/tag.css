@@ -1,0 +1,18 @@
+.tag {
+  display: block;
+  color: var(--color-tag, #6466E9);
+  border: solid .1rem currentColor;
+  padding: .1rem 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: color linear .1s, background-color linear .1s;
+  user-select: none;
+
+  &:hover {
+    background-color: var(--color-tag, #6466E9);
+    color: var(--bg-page, #111729);
+  }
+  @media screen and (min-width: 64rem) {
+    letter-spacing: 0.1rem;
+  }
+}

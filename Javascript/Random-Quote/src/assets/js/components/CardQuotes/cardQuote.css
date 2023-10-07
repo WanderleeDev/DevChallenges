@@ -1,0 +1,52 @@
+.cardQuote {
+  display: grid;
+  gap: 1rem;
+  margin-inline: auto;
+  background: url(/src/assets/images/bg-image-random-quote.svg) no-repeat;
+  background-size: 100%;
+  background-position: center bottom;
+  justify-items: center;
+  width: min(40rem , 100%);
+  padding: 2rem;
+  background-color: var(--bg-card, #20293A);
+  border-radius: 1rem;
+  @media screen and (min-width:33rem) {
+    padding: 2rem 3.5rem;
+  }
+  
+  & .cardQuote-author {
+    font-size: var(--quote-author-size, 1rem);
+    color: var(--primary-color, #E3E8EE);
+    font-weight: 500;
+    @media screen and (min-width: 64rem) {
+      font-weight: 600;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  & .cardQuote-tags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: var(--tag-text-size, .625rem);
+  }
+
+  & .cardQuote-content {
+    display: block;
+    padding-block: 1rem;
+    font-size: var(--quote-size, 1.5rem);
+    color: var(--text-quote, #4A5567);
+    text-align: center;
+    line-height: 1.5;
+    
+    &::before {
+      content: open-quote;
+    }
+    &::after {
+      content: close-quote;
+    }
+  }
+
+}

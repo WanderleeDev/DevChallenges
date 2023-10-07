@@ -1,0 +1,5 @@
+#app {
+  @media screen and (min-width:33rem) {
+    padding-inline: 3rem
+  }
+}
