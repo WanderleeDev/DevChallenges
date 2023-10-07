@@ -4,9 +4,8 @@ import Button from './assets/js/components/Button/Button'
 import fetchQuote from './assets/js/utils/fetchQuote'
 import MessageCopy from './assets/js/components/MenssageCopy/MessageCopy'
 
-const quote = await fetchQuote()
-
-const App = () => {
+const App = async () => {
+  const quote = await fetchQuote()
   return (`
     ${MessageCopy()}
     <div class="quote-wrapper">
