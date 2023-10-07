@@ -1,15 +1,17 @@
 import './button.css'
+import refresh from '../../../images/Regroup.svg'
+import copy from '../../../images/link.svg'
 
 const Button = () => {
   const images = [
     {
       id: 'btn-copy',
-      img: '/src/assets/images/Regroup.svg',
+      img: refresh,
       alt: 'refresh quote'
     },
     {
       id: 'btn-refresh',
-      img: '/src/assets/images/link.svg',
+      img: copy,
       alt: 'copy quote'
     }
   ]
