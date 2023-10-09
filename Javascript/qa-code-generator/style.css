@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-right-center {
+    background-position: 90% 50%;
+  }
+  .w-responsive {
+    width: min(100%, 45rem);
+  }
+  .p-child {
+    & img {
+      padding: 2rem;
+      background-color: #F2F5FA;
+      border-radius: 1.3rem;  
+    }
+  }
+}
