@@ -1,10 +1,12 @@
 import './style.css'
-import addHtml from './src/assets/js/utils/addHtml'
-import App from './src/App'
-import generateQr from './src/assets/js/utils/generateQr'
+import routes from './src/assets/routes/routes'
 
-addHtml('#app', App())
 
-const btnGenerator = document.querySelector('#btnGenerator')
-const inputText = document.querySelector('#inputText')
-btnGenerator.addEventListener('click', () => generateQr(inputText.value))
+const initApp = () => {
+  routes(window.location.hash)
+  window.addEventListener('hashchange', () => {
+    routes(window.location.hash)
+  })
+}
+
+initApp()

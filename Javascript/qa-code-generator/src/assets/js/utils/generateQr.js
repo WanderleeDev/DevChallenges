@@ -1,11 +1,6 @@
-const containerQr = document.querySelector('#qrContainer')
-
 const generateQr = (text) => {
-	if (!text.trim()) {
-		alert('Debe enviar un texto')
-		return
-	}
-
+	const containerQr = document.querySelector('#qrContainer')
+	
 	const params = {
 		text,
 		width: 170,
@@ -13,6 +8,13 @@ const generateQr = (text) => {
 		colorDark: '#000',
 		colorLight: '#F2F5FA'
 	}
+
+	if (!text) {
+		params.text = 'Empty value'
+		params.colorLight = '#000'
+		params.colorDark = "#000"
+	}
+	
   new QRCode(containerQr, params)
 }
 
