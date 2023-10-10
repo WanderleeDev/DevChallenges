@@ -8,7 +8,7 @@ const downloadHandler = (pathImg) => {
 const downloadQR = () => {
   const img = document.querySelector('#qrContainer > img')
 
-  document.querySelector('#btnGenerator')
+  document.querySelector('#btnDownload')
     .addEventListener('click', () => {
       downloadHandler(img)
     })

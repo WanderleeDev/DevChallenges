@@ -2,6 +2,7 @@ import addHtml from "../js/utils/addHtml"
 import App from "../../App"
 import QrCode from "../js/components/QrCode/QrCode"
 import generateQr from "../js/utils/generateQr"
+import ErrorPage from "../js/components/ErrorPage/ErrorPage"
 import validateInput from "../js/utils/validateInput"
 import downloadQR from "../js/utils/downloadQR"
 import copyClipBoard from "../js/utils/copyClipBoard"
@@ -12,6 +13,7 @@ const routes = (route) => {
       document.querySelector('#app').innerHTML=''
       addHtml('#app', App())
       break;
+
       case '#qr':
         const qrValue = validateInput()
         document.querySelector('#app').innerHTML=''
@@ -20,7 +22,10 @@ const routes = (route) => {
         downloadQR()
         copyClipBoard()
       break;
+
     default:
+      document.querySelector('#app').innerHTML=''
+      addHtml('#app', ErrorPage())
       console.log('404');
   }
 }

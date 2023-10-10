@@ -1,15 +1,18 @@
-import Button from "../QrGenerator/components/Button"
 import LogoQr from "../LogoQr/LogoQr"
+import Btn from "./Btn"
+
+import downloadIcon from '../../../images/download.svg'
+import copyIcon from '../../../images/copy.svg'
 
 const QrCode = () => {
-  const Btns = [
+  const ContentBtn = [
     {
       content: 'Download',
-      icon: ''
+      icon: downloadIcon
     },
     {
       content: 'Share',
-      icon: ''
+      icon: copyIcon
     }
   ]
   return (`
@@ -20,7 +23,7 @@ const QrCode = () => {
     <div id="qrContainer" class="p-8  w-max relative z-10 after:absolute after:inset-0 after:bg-clr-secondary after:-z-10 after:rounded-[50%] p-child">
     </div>
     <div class="flex xs:gap-4 flex-wrap justify-center items-center">
-      ${Btns.map(btn => (`${Button(btn.content)}`))}
+      ${ContentBtn.map(btn => (`${Btn(btn)}`)).join("")}
     </div>
   </section>
   `)

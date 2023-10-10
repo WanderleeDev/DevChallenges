@@ -10,7 +10,7 @@ const copyClipBoardHandler = async (target) => {
 }
 
 const copyClipBoard = () => {
-  const triggerBtn = document.querySelector('#btnGenerator')
+  const triggerBtn = document.querySelector('#btnShare')
   triggerBtn.addEventListener('click', async () => await copyClipBoardHandler('#qrContainer'))
 }
 
