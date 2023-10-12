@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-page {
+    background: url('/src//assets//img//blur-radial.svg') -30% -500%,
+    url('/src//assets//img//blur-radial.svg') 140% 600%;
+    background-color: #121826;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  label:has(input[type=checkbox]:checked) {
+    @apply 
+    text-primary 
+    bg-checked-bg 
+    border-checked-border
+    font-medium
+  }
+}
