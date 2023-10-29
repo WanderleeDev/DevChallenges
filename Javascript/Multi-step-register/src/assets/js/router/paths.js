@@ -1,12 +1,13 @@
 import ErrorPage from '../components/ErrorPage/ErrorPage'
-import FormStep1 from '../views/FormStep1'
+import { FormStep1, fnValidate } from '../views/FormStep1'
 import FormStep2 from '../views/FormStep2'
 import FormStep3 from '../views/FormStep3'
 
 const PATHS = {
   home: {
     path: '/',
-    template: FormStep1('formStep1')
+    template: FormStep1('formStep1'),
+    fnValidate
   },
   stepForm2: {
     path: '/stepForm2',

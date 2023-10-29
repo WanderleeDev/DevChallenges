@@ -10,7 +10,7 @@ const FormBase = ({ titleForm, content, id }) => {
         </legend>
         ${content}
       </fieldset>
-      ${Btn()}
+      ${Btn(id)}
       ${ProgressBar(1)}
     </form>
   `)

@@ -3,6 +3,7 @@ class RenderHtml {
 
   constructor (target) {
     this.targetElement = document.querySelector(target)
+    this.loadedContent = new Event('contentReady')
 
     if (!this.targetElement) {
       throw new Error(`No se encuentra el objetivo con la clase o identificador ${target}`)
@@ -36,6 +37,7 @@ class RenderHtml {
     } else {
       throw new Error(this.errorMessage)
     }
+    document.dispatchEvent(this.loadedContent)
   }
 }
 

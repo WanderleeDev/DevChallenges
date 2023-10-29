@@ -15,7 +15,9 @@ class Router {
 
   load (page = 'home') {
     const { paths } = this
-    const { path, template } = paths[page] || paths.error
+    const { path, template, fnValidate } = paths[page] || paths.error
+    window.addEventListener('contentReady', fnValidate)
+    window.addEventListener('DOMContentLoaded', () => fnValidate())
     this.render.renderContent(template)
     window.history.pushState({}, 'done', path)
   }

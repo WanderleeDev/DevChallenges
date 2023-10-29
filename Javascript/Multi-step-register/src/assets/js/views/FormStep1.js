@@ -1,7 +1,8 @@
 import FormBase from '../components/FormBase/FormBase'
 import Input from '../shared/Input'
+import ValidatorStep1 from '../utils/ValidateForm1'
 
-const FormStep1 = (id) => {
+export const FormStep1 = (id) => {
   const inputData = [
     {
       type: 'text',
@@ -20,4 +21,8 @@ const FormStep1 = (id) => {
   return FormBase({ titleForm, content, id })
 }
 
-export default FormStep1
+export const fnValidate = () => {
+  const validity = new ValidatorStep1('#formStep1', '#btnformStep1')
+  validity.checkFormValidity()
+  validity.keyupListenerValidator()
+}
