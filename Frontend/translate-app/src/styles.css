@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.banner {
+  background-image: url('assets/img/hero_img.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 50%;
+  background-color: #040612;
+  @media screen and (width >= 70rem) {
+    background-size: 100% 70%;
+  }
+}
+.w-title {
+  width: min(20rem ,100%);
+}
+
+.w-wrapper {
+  width: min(35rem, 100%);
+}
+
+.stylesBtn {
+  transition: transform .2s linear;
+  &:hover {
+    transform: scale(.95);
+  }
+  &:active {
+    transform: scale(1.1);
+  }
+  &:disabled {
+    &:hover {
+      transform: scale(1);
+    }
+    &:active {
+      transform: scale(1);
+    }
+  }
+}

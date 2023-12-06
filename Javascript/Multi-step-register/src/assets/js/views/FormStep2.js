@@ -1,7 +1,7 @@
 import FormBase from '../components/FormBase/FormBase'
 import CheckBox from '../shared/CheckBox'
 
-const FormStep2 = () => {
+export const FormStep2 = () => {
   const checkBoxData = {
     type: 'checkbox',
     options: [
@@ -25,4 +25,6 @@ const FormStep2 = () => {
   return FormBase({ titleForm, content })
 }
 
-export default FormStep2
+export const fnValidate2 = () => {
+  console.log('form 2')
+}

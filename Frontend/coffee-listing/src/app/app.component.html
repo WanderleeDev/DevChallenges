@@ -1,0 +1,12 @@
+@defer () {
+  <main class="min-h-screen">
+    <app-banner />
+    <app-home />
+  </main>
+} @loading (minimum 1200ms) {
+  <app-loader />
+} @error {
+  <p class="text-xl bg-slate-600 text-red-500 mx-auto max-w-xs font-medium py-4 px-8 rounded-md">
+    Ha ocurrido un error al intentar obtener la data. Intente de nuevo mas tarde
+  </p>
+}

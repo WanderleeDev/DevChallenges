@@ -1,0 +1,13 @@
+<div class="relative rounded-sm h-full text-slate-200 max-h-[22rem] min-h-[10rem]">
+  <textarea class="resize-none w-full bg-transparent h-full outline-none"
+    #box
+    name="textBox"
+    (keydown)="updateValue(box.value)"
+    placeholder="Tu texto aquí">
+  </textarea>
+  @if (hasLetterCounter) {
+    <span class="text-auxiliar block absolute z-10 bottom-0 right-0 text-xs">
+      {{lettersCounter()}}/500
+    </span>
+  }
+</div>

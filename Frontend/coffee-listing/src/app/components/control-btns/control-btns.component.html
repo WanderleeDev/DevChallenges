@@ -1,0 +1,19 @@
+<div #btnContainer class="flex gap-4 text-[#FEF6ED] justify-center pb-8 flex-wrap items-center">
+  <button (click)="activateBtn()"
+    (click)="filterList(false)"
+    [disabled]="isActiveBtn"
+    [ngClass]="{'bg-[#6E757D]': isActiveBtn}"
+    [class]="btnBase"
+    type="button">
+    All Products
+  </button>
+
+  <button (click)="activateBtn()"
+    (click)="filterList(true)"
+    [disabled]="!isActiveBtn"
+    [ngClass]="{'bg-[#6E757D]': !isActiveBtn}"
+    [class]="btnBase"
+    type="button">
+    Available Now
+  </button>
+</div>

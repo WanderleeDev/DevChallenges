@@ -1,0 +1,12 @@
+<ul class="bg-[#1C1D1F] grid gap-y-12 gap-x-4 sm:grid-cols-2 lg:grid-cols-3">
+  @for (coffee of listCoffee | async ; track coffee.id) {
+  <li>
+    <app-card-coffee [dataCoffee]="coffee" />
+  </li>
+  }
+  <!-- @empty {
+    <p class="text-center text-4xl text-white mx-auto py-8 col-span-full">
+      No coffee at the moment ☕☕☕
+    </p>
+  } -->
+</ul>
