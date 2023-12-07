@@ -1,8 +1,11 @@
 <div class="bg-transparent border-b-[#394050] border-b-[.1rem] pb-2 flex items-center gap-3 justify-between">
   <div>
-    @if (isInputBox) { <app-btn-control textBtn="Detect Language"/> }
-    <app-btn-control textBtn="English"/>
-    <app-btn-control textBtn="French"/>
+    @if (isInputBox) {
+      <app-btn-control [hasMarkActive]="true" textBtn="Detect Language"/>
+    }
+    
+    <app-btn-control [hasMarkActive]="false" textBtn="English"/>
+    <app-btn-control [hasMarkActive]="false" textBtn="French"/>
     <app-language-selector />
   </div>
 

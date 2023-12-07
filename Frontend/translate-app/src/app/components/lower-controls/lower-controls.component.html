@@ -1,14 +1,22 @@
 <div class="flex justify-between items-end flex-wrap gap-4">
   <div class="flex gap-3">
-    <app-btn-base ariaLabel="Listen to text">
+    <app-btn-base
+      (click)="textToSpeech()"
+      ariaLabel="Listen to text"
+    >
       <app-icon-sound />
     </app-btn-base>
 
-    <app-btn-base ariaLabel="Copy to clipboard">
+    <app-btn-base
+      (click)="copyText()"
+      ariaLabel="Copy to clipboard"
+    >
       <app-icon-copy />
     </app-btn-base>
+
   </div>
+  
   @if (hasTranslationBtn) {
-    <app-btn-translate/>
+    <app-btn-translate (click)="translateText()"/>
   }
 </div>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { TitleComponent } from './components/title/title.component';
 import { BoxTranslateComponent } from './components/box-translate/box-translate.component';
+import { TooltipComponent } from './shared/components/tooltip/tooltip.component';
 
 
 @Component({
@@ -12,7 +13,8 @@ import { BoxTranslateComponent } from './components/box-translate/box-translate.
     CommonModule,
     RouterOutlet,
     TitleComponent,
-    BoxTranslateComponent
+    BoxTranslateComponent,
+    TooltipComponent
   ],
   templateUrl: './app.component.html',
 })
