@@ -1,36 +1,39 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { FormControl, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoxTextStateService {
-  private inputTextBox$ = new BehaviorSubject('A');
-  private outputTextBox$ = new BehaviorSubject('B');
+  private  textAreaInputControl$ = new FormControl<string>('', {
+    nonNullable: true,
+    validators: [Validators.maxLength(500)]
+  });
+  private  textAreaOutputControl$ = new FormControl<string>('', { nonNullable: true });
 
-  public getContentTextObservable (isInputBox: boolean): Observable<string> {
+  public getFormControlTextArea (isInputBox: boolean): FormControl<string> {
     return isInputBox
-      ? this.inputTextBox$.asObservable().pipe(take(1))
-      : this.outputTextBox$.asObservable().pipe(take(1))
+      ? this.textAreaInputControl$
+      : this.textAreaOutputControl$
   }
 
-  public setContentText (text: string, isInputBox: boolean) {
+  public getContentFormControl (isInputBox: boolean): string {
+    return isInputBox
+      ? this.textAreaInputControl$.value
+      : this.textAreaOutputControl$.value
+  }
+
+  public setValueFormControl (value: string, isInputBox: boolean): void {
     isInputBox
-      ? (this.inputTextBox$.next(text), console.log(this.inputTextBox$.getValue()))
-      : (this.outputTextBox$.next(text), console.log(this.outputTextBox$.getValue()))
+      ? this.textAreaInputControl$.setValue(value)
+      : this.textAreaOutputControl$.setValue(value)
   }
 
-  public getContentText (isInputBox: boolean): string {
-    return isInputBox
-      ? this.inputTextBox$.getValue()
-      : this.outputTextBox$.getValue()
-  }
+  public invertValues ():void {
+    const textAreaInputValueCurrent = this.textAreaInputControl$.value;
+    const textAreaOutputValueCurrent = this.textAreaOutputControl$.value;
 
-  public invertValues (): void {
-    const inputTextBoxCurrentValue = this.inputTextBox$.getValue();
-    const outputTextBoxCurrentValue = this.outputTextBox$.getValue();
-    this.inputTextBox$.next(outputTextBoxCurrentValue);
-    this.outputTextBox$.next(inputTextBoxCurrentValue);
+    this.textAreaInputControl$.setValue(textAreaOutputValueCurrent);
+    this.textAreaOutputControl$.setValue(textAreaInputValueCurrent);
   }
 }

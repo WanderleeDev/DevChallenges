@@ -1,7 +1,6 @@
-import { HttpClient, HttpErrorResponse, HttpParams, HttpStatusCode } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
-import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { take } from 'rxjs/operators';
 //  services
 import { BoxTextStateService } from './boxTextState.service';
 //  interfaces
@@ -12,24 +11,23 @@ import { IErrResponseData, ITranslateData } from '../shared/interfaces/ITranslat
 })
 export class TranslateService {
   private readonly API_TRANSLATE = 'https://api.mymemory.translated.net/get'
-  private httpTranslate = inject(HttpClient);
-  private language = '';
 
-  constructor (private boxTextStateSvc: BoxTextStateService) {}
+  constructor (
+    private boxTextStateSvc: BoxTextStateService,
+    private httpTranslate: HttpClient,
+  ) {}
 
-  public getTranslate(lang: string) {
+  public getTranslate() {
     let params = new HttpParams();
-    params = params.set('q', this.boxTextStateSvc.getContentText(true));
-    params = params.set('langpair', lang);
+    params = params.set('q', this.boxTextStateSvc.getContentFormControl(true));
+    params = params.set('langpair', 'en|es');
     params = params.set('mt', 1);
 
-    return this.httpTranslate.get<ITranslateData | IErrResponseData>(this.API_TRANSLATE, {params: params})
-      .pipe(
-        catchError((err: HttpErrorResponse) => {
-          if (err.status === HttpStatusCode.Forbidden) {
-            return throwError(() => new Error(`Código de error ${err.status}: ${err.message}`))
-          }
-          return throwError(() => new Error('Error desconocido'))
-        }))
+    this.httpTranslate.get<ITranslateData | IErrResponseData>(this.API_TRANSLATE, {params: params})
+      .pipe(take(1))
+      .subscribe(res => this.boxTextStateSvc.setValueFormControl(
+        res.responseData.translatedText,
+        false
+      ))
   }
 }

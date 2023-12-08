@@ -10,7 +10,6 @@ import { textToSpeech } from '../../shared/helpers/textToSpeech';
 import { TranslateService } from '../../services/translate.service';
 import { BoxTextStateService } from '../../services/boxTextState.service';
 import { CopyToClipboardService } from '../../services/copyToClipboard.service';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-lower-controls',
@@ -35,18 +34,14 @@ export class LowerControlsComponent {
     ) {}
 
   public translateText (): void {
-    this.httpTranslateSvc.getTranslate('en|es').subscribe({
-      next: (res) => this.boxTextStateSvc.setContentText(res.responseData.translatedText, !this.isInputBox),
-      error: (err: HttpErrorResponse) => err.message,
-      complete: () => console.log('complete')
-    })
+    this.httpTranslateSvc.getTranslate()
   }
 
   public copyText (): void {
-    this.copyToClipboardSvc.copyToClipboard(this.boxTextStateSvc.getContentText(this.isInputBox))
+    this.copyToClipboardSvc.copyToClipboard(this.boxTextStateSvc.getContentFormControl(this.isInputBox))
   }
 
   public textToSpeech (): void {
-    textToSpeech(this.boxTextStateSvc.getContentText(this.isInputBox));
+    textToSpeech(this.boxTextStateSvc.getContentFormControl(this.isInputBox));
   }
 }

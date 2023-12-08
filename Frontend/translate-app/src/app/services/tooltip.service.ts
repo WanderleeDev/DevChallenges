@@ -16,5 +16,4 @@ export class TooltipService {
   public getObservableTooltip (): Observable<boolean> {
     return this.isViewTooltip.asObservable();
   }
-
 }
