@@ -1,22 +1,34 @@
 <div class="relative rounded-sm h-full text-slate-200 max-h-[22rem] min-h-[10rem] pb-6">
-  <textarea
-    class="resize-none w-full bg-transparent h-full outline-none overflow-hidden"
-    [formControl]="textArea"
-    (keyup)="saveText()"
-    (change)="saveText()"
-    name="textArea"
-    placeholder="Tu texto aquí"
-  >
-    {{textArea | json}}
-  </textarea>
 
-  @if (hasLetterCounter) {
+  @if (isInputBox) {
+    <textarea
+      class="resize-none w-full bg-transparent h-full outline-none overflow-hidden"
+      [formControl]="textArea"
+      (keyup)="saveText()"
+      (change)="saveText()"
+      name="textArea"
+      placeholder="Tu texto aquí"
+    >
+    </textarea>
+  } @else {
+    <textarea
+      class="resize-none w-full bg-transparent h-full outline-none overflow-hidden"
+      (keyup)="saveText()"
+      (change)="saveText()"
+      name="textArea"
+      placeholder="Tu texto aquí"
+    >
+      {{outPutTextArea | async}}
+    </textarea>
+  }
+
+  @if (isInputBox) {
     <span
       class="text-auxiliar block absolute z-10 bottom-0 right-0 text-xs"
       [ngClass]="{'text-red-500': textArea.invalid}"
     >
       @if (textArea.invalid) { <strong >Max exceded: </strong> }
-      {{textArea.value.length}}/500
+      {{textArea.value.length }}/500
     </span>
   }
 </div>

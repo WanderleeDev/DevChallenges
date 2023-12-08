@@ -4,6 +4,8 @@ import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 //  services
 import { BoxTextStateService } from './boxTextState.service';
+//  interfaces
+import { IErrResponseData, ITranslateData } from '../shared/interfaces/ITranslatedata.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +19,11 @@ export class TranslateService {
 
   public getTranslate(lang: string) {
     let params = new HttpParams();
-    params = params.set('q', this.boxTextStateSvc.getContentText());
+    params = params.set('q', this.boxTextStateSvc.getContentText(true));
     params = params.set('langpair', lang);
+    params = params.set('mt', 1);
 
-    return this.httpTranslate.get(this.API_TRANSLATE, {params: params})
+    return this.httpTranslate.get<ITranslateData | IErrResponseData>(this.API_TRANSLATE, {params: params})
       .pipe(
         catchError((err: HttpErrorResponse) => {
           if (err.status === HttpStatusCode.Forbidden) {

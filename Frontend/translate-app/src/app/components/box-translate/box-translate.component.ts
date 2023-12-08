@@ -22,11 +22,7 @@ BoxTextStateService
 export class BoxTranslateComponent {
   @Input({required: true}) boxColor = 'bg-[#212936cc]';
   @Input({required: true}) isInputBox!: boolean;
-  // @Input({required: true}) functionSaveText!: () => void;
 
   constructor (private boxTextStateSvc: BoxTextStateService) { }
-
-  public saveText (text: string): void {
-    this.boxTextStateSvc.setContentText(text);
-  }
+  
 }

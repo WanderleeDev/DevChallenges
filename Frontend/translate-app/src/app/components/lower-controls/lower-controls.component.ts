@@ -10,6 +10,7 @@ import { textToSpeech } from '../../shared/helpers/textToSpeech';
 import { TranslateService } from '../../services/translate.service';
 import { BoxTextStateService } from '../../services/boxTextState.service';
 import { CopyToClipboardService } from '../../services/copyToClipboard.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-lower-controls',
@@ -25,7 +26,7 @@ import { CopyToClipboardService } from '../../services/copyToClipboard.service';
   styles: [`:host { display: contents }`]
 })
 export class LowerControlsComponent {
-  @Input({required: true}) hasTranslationBtn!: boolean;
+  @Input({required: true}) isInputBox!: boolean;
 
   constructor (
     private httpTranslateSvc: TranslateService,
@@ -34,14 +35,18 @@ export class LowerControlsComponent {
     ) {}
 
   public translateText (): void {
-    this.httpTranslateSvc.getTranslate('en|es').subscribe(res => console.log(res))
+    this.httpTranslateSvc.getTranslate('en|es').subscribe({
+      next: (res) => this.boxTextStateSvc.setContentText(res.responseData.translatedText, !this.isInputBox),
+      error: (err: HttpErrorResponse) => err.message,
+      complete: () => console.log('complete')
+    })
   }
 
   public copyText (): void {
-    this.copyToClipboardSvc.copyToClipboard(this.boxTextStateSvc.getContentText())
+    this.copyToClipboardSvc.copyToClipboard(this.boxTextStateSvc.getContentText(this.isInputBox))
   }
 
   public textToSpeech (): void {
-    textToSpeech(this.boxTextStateSvc.getContentText());
+    textToSpeech(this.boxTextStateSvc.getContentText(this.isInputBox));
   }
 }

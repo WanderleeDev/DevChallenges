@@ -1,7 +1,7 @@
 <div [ngClass]="boxColor" class="p-6 rounded-[1.5rem] border-[#394150] border-[.1rem] w-wrapper flex flex-col gap-3 backdrop-blur-sm">
   <app-superior-controls [isInputBox]="isInputBox" />
-  <app-text-box  [hasLetterCounter]="isInputBox" />
+  <app-text-box  [isInputBox]="isInputBox" />
   <app-lower-controls
-    [hasTranslationBtn]="isInputBox"
+    [isInputBox]="isInputBox"
   />
 </div>

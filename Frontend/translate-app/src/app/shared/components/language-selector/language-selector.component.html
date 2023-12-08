@@ -1,7 +1,10 @@
 
-<select class="rounded-md bg-transparent text-white py-2 px-3 font-medium text-sm hover:bg-[#4D5562] " name="language">
-  <option value="">Default</option>
-  @for (language of listLanguages; track $index) {
-    <option [value]="language">{{language}}</option>
+<select class="rounded-md bg-transparent text-white py-2 px-3 font-medium text-sm hover:bg-[#4D5562] max-w-[6rem]" name="language">
+
+  @for (language of listLanguagesFull; track $index) {
+    <option [value]="language.code">{{language.name}}</option>
+  } @empty {
+    <option value="no data">No data</option>
   }
+
 </select>
