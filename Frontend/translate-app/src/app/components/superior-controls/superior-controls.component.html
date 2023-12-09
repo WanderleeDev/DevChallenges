@@ -11,19 +11,24 @@
     <app-btn-control
       [hasMarkActive]="false"
       textBtn="English"
+      (click)="setLanguage('en')"
     />
 
     <app-btn-control
       [hasMarkActive]="false"
       textBtn="French"
+      (click)="setLanguage('fr')"
     />
 
-    <app-language-selector />
+    <app-language-selector [functionSetLanguage]="fnSetLanguageFinal" />
   </div>
 
   @if (!isInputBox) {
-    <app-btn-base ariaLabel="change">
-      <app-icon-double-arrow (click)="invertValues()" />
+    <app-btn-base
+      ariaLabel="change"
+      (click)="invertValues()"
+    >
+      <app-icon-double-arrow />
     </app-btn-base>
   }
 </div>

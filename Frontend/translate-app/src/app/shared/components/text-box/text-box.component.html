@@ -4,15 +4,16 @@
     <textarea
       class="resize-none w-full bg-transparent h-full outline-none overflow-hidden"
       [formControl]="textAreaControl"
-      name="textArea"
+      name="textAreaInput"
       placeholder="Tu texto aquí"
     >
     </textarea>
   } @else {
     <textarea
+      [attr.disabled]="true"
       class="resize-none w-full bg-transparent h-full outline-none overflow-hidden"
       [formControl]="textAreaControl"
-      name="textArea"
+      name="textAreaOutput"
       placeholder="Tu texto aquí"
     >
     </textarea>
