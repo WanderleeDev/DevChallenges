@@ -1,7 +1,7 @@
 const speecher = window.speechSynthesis;
 
-export function textToSpeech(text: string): void {
+export function textToSpeech(text: string, lang?: string): void {
   const utterThis = new SpeechSynthesisUtterance(text)
-  utterThis.lang = 'es-ES'
+  utterThis.lang = lang || 'en-US';
   speecher.speak(utterThis)
 }

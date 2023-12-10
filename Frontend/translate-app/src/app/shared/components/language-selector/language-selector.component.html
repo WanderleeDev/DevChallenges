@@ -1,9 +1,9 @@
 
-<select class=" truncate rounded-md bg-transparent text-white py-2 px-3 font-medium text-sm hover:bg-[#4D5562] max-w-[7rem]"
+<select class=" truncate rounded-md bg-transparent text-white py-2 px-3 font-medium text-sm hover:bg-[#4D5562] max-w-[7rem] btn-control"
   #selectorLanguage
   name="language"
   aria-label="select language"
-  (change)="changeLanguage(selectorLanguage.value)"
+  (blur)="changeLanguage(selectorLanguage.value)"
 >
 
   @for (language of listLanguagesFull; track $index) {

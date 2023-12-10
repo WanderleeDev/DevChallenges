@@ -9,7 +9,9 @@ export class BoxTextStateService {
     nonNullable: true,
     validators: [Validators.maxLength(500)]
   });
-  private  textAreaOutputControl$ = new FormControl<string>('', { nonNullable: true });
+  private  textAreaOutputControl$ = new FormControl<string>(
+    { value: '', disabled: true },
+    { nonNullable: true });
 
   public getFormControlTextArea (isInputBox: boolean): FormControl<string> {
     return isInputBox

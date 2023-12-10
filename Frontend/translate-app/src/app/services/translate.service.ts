@@ -11,51 +11,48 @@ import { IErrResponseData, ITranslateData } from '../shared/interfaces/ITranslat
 })
 export class TranslateService {
   private readonly API_TRANSLATE = 'https://api.mymemory.translated.net/get'
-  private languageInitial = '';
-  private languageFinal = '';
+  private languageInitial = 'en';
+  private languageFinal = 'fr';
   private hasLanguageDetection = false;
 
   constructor (
     private boxTextStateSvc: BoxTextStateService,
     private httpTranslate: HttpClient,
-  ) {}
+  ) { }
+
+  public getLanguage (param: boolean): string {
+    return param ? this.languageInitial : this.languageFinal;
+  }
 
   public setLanguageInitial(language: string): void {
     this.languageInitial = language;
-    console.log(this.languageInitial);
   }
 
   public setLanguageFinal(language: string): void {
     this.languageFinal = language;
-    console.log(this.languageFinal);
   }
 
   public setLanguageDetection(): boolean {
-    this.hasLanguageDetection = !this.hasLanguageDetection
-    return this.hasLanguageDetection
+    this.hasLanguageDetection = !this.hasLanguageDetection;
+    return this.hasLanguageDetection;
   }
 
   private getParams (): HttpParams {
-    const data = `${this.languageInitial}|${this.languageFinal}`
-    console.log(data, this.languageFinal);
-
     let params = new HttpParams();
-
     params = params.set('q', this.boxTextStateSvc.getContentFormControl(true));
-    params = params.set('langpair', data);
     params = params.set('mt', Number(this.hasLanguageDetection).toString());
+    params = params.set('langpair', `${this.languageInitial}|${this.languageFinal}`);
+
     return params
   }
 
-  public getTranslate() {
+  public getTranslate(): void {
+    this.boxTextStateSvc.setValueFormControl('Translating ...', false)
 
-
-    console.log(this.getParams());
-    this.httpTranslate.get<ITranslateData | IErrResponseData>(this.API_TRANSLATE, {params: this.getParams()})
+    this.httpTranslate.get<ITranslateData | IErrResponseData>(this.API_TRANSLATE, { params: this.getParams() })
       .pipe(take(1))
-      .subscribe(res => this.boxTextStateSvc.setValueFormControl(
-        res.responseData.translatedText,
-        false
-      ))
+      .subscribe(res => {
+        this.boxTextStateSvc.setValueFormControl(res.responseData.translatedText, false)
+      })
   }
 }

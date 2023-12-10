@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, signal } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DoubleArrowComponent } from '../../shared/icons/double-arrow/double-arrow.component';
 import { BtnBaseComponent } from '../../shared/components/btn-base/btn-base.component';
@@ -7,6 +7,8 @@ import { LanguageSelectorComponent } from '../../shared/components/language-sele
 //  services
 import { BoxTextStateService } from '../../services/boxTextState.service';
 import { TranslateService } from '../../services/translate.service';
+//  helpers
+import { setListenerButtons } from '../../shared/helpers/setListenerButtons';
 
 @Component({
   selector: 'app-superior-controls',
@@ -21,10 +23,11 @@ import { TranslateService } from '../../services/translate.service';
   templateUrl: './superior-controls.component.html',
   styles: [`:host { display: contents }`]
 })
-export class SuperiorControlsComponent implements OnInit {
+export class SuperiorControlsComponent implements OnInit, AfterViewInit {
   @Input({required: true}) isInputBox?: boolean;
+  fnSetLanguage?: (lang:string) => void;
   isActiveLanguageDetection = signal(false);
-  fnSetLanguageFinal!: (lang:string) => void;
+  classContainerControl?: string;
 
   constructor (
     private boxTextStateSvc: BoxTextStateService,
@@ -32,9 +35,19 @@ export class SuperiorControlsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.classContainerControl = this.isInputBox ? 'textAreaInput' : 'textAreaOutput';
     this.isInputBox
-      ? this.fnSetLanguageFinal = this.translateSvc.setLanguageInitial
-      : this.fnSetLanguageFinal = this.translateSvc.setLanguageFinal;
+      ? this.fnSetLanguage = this.translateSvc.setLanguageInitial.bind(this.translateSvc)
+      : this.fnSetLanguage = this.translateSvc.setLanguageFinal.bind(this.translateSvc);
+
+  }
+
+  ngAfterViewInit(): void {
+    !!this.classContainerControl && setListenerButtons({
+      parentContainer: this.classContainerControl,
+      buttonChild: 'btn-control',
+      classActive: 'active-btn'
+    })
   }
 
   public invertValues (): void {
@@ -46,6 +59,6 @@ export class SuperiorControlsComponent implements OnInit {
   }
 
   public setLanguage (lang: string): void {
-    this.fnSetLanguageFinal(lang)
+    !!this.fnSetLanguage && this.fnSetLanguage(lang)
   }
 }

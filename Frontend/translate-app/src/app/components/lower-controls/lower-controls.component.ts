@@ -24,14 +24,18 @@ import { CopyToClipboardService } from '../../services/copyToClipboard.service';
   templateUrl: './lower-controls.component.html',
   styles: [`:host { display: contents }`]
 })
-export class LowerControlsComponent {
+export class LowerControlsComponent{
   @Input({required: true}) isInputBox!: boolean;
+  hasTextToSpeech = window.speechSynthesis;
 
   constructor (
     private httpTranslateSvc: TranslateService,
     private boxTextStateSvc: BoxTextStateService,
     private copyToClipboardSvc: CopyToClipboardService,
-    ) {}
+  ) {
+    this.boxTextStateSvc.setValueFormControl('Hello, how are you?', true)
+    this.httpTranslateSvc.getTranslate();
+  }
 
   public translateText (): void {
     this.httpTranslateSvc.getTranslate()
@@ -42,6 +46,8 @@ export class LowerControlsComponent {
   }
 
   public textToSpeech (): void {
-    textToSpeech(this.boxTextStateSvc.getContentFormControl(this.isInputBox));
+    textToSpeech(
+      this.boxTextStateSvc.getContentFormControl(this.isInputBox),
+      this.httpTranslateSvc.getLanguage(this.isInputBox));
   }
 }

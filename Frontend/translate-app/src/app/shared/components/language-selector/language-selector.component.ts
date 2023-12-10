@@ -16,12 +16,12 @@ import { ILanguage } from '../../interfaces/ILanguage.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LanguageSelectorComponent {
-  @Input({required: true}) functionSetLanguage?: (lang: string) => void;
+  @Input({required: true}) setLanguage?: (lang: string) => void;
   listLanguagesFull: ILanguage[] = languages;
 
   public changeLanguage (lang: string): void {
-    if (this.functionSetLanguage) {
-      this.functionSetLanguage(lang)
+    if (this.setLanguage) {
+      this.setLanguage(lang)
     }
   }
 }

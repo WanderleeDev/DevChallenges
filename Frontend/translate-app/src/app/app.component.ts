@@ -19,5 +19,4 @@ import { TooltipComponent } from './shared/components/tooltip/tooltip.component'
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'translate-app';
 }

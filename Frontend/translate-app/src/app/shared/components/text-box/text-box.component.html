@@ -2,19 +2,17 @@
 
   @if (isInputBox) {
     <textarea
-      class="resize-none w-full bg-transparent h-full outline-none overflow-hidden"
+      class="resize-none w-full bg-transparent h-full outline-none overflow-hidden font-medium"
       [formControl]="textAreaControl"
       name="textAreaInput"
-      placeholder="Tu texto aquí"
-    >
+      placeholder="Your text here"
+      >
     </textarea>
   } @else {
     <textarea
-      [attr.disabled]="true"
-      class="resize-none w-full bg-transparent h-full outline-none overflow-hidden"
+      class="resize-none w-full bg-transparent h-full outline-none overflow-hidden font-medium"
       [formControl]="textAreaControl"
       name="textAreaOutput"
-      placeholder="Tu texto aquí"
     >
     </textarea>
   }

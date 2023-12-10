@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateIconComponent } from '../../icons/translate-icon/translate-icon.component';
 
 @Component({
   selector: 'app-btn-translate',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateIconComponent],
   template: `
     <button [class]="btnTranslateStyles"
       aria-label="translate text"
       type="button">
-      <img [src]="iconBtn" alt="translate icon">
+      <app-translate-icon />
       Translate
     </button>
   `,
