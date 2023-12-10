@@ -2,7 +2,8 @@
 
 ![Translator App Preview](https://www.dropbox.com/scl/fi/6yek6r2qyepibus5uutze/translateApp.png?rlkey=2boqblblmgm1xy6o2pdlw5of0&raw=1)
 
- - [Demo page](https://translate-587jlo3vi-wanderleedev.vercel.app/)
+ - [Demo page](https://translate-app-six.vercel.app/)
+ 
 
 Project developed following [devChallenges.io](https://devchallenges.io/) specifications.
 

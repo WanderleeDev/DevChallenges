@@ -1,4 +1,4 @@
-<div [ngClass]="boxColor" class="p-6 rounded-[1.5rem] border-[#394150] border-[.1rem] w-wrapper flex flex-col gap-3 backdrop-blur-sm sm:max-h-[22rem]">
+<div [ngClass]="boxColor" [class.justify-self-end]="isInputBox"  class="p-6 rounded-[1.5rem] border-[#394150] border-[.1rem]  w-wrapper flex flex-col gap-3 backdrop-blur-sm sm:max-h-[22rem]">
   <app-superior-controls [isInputBox]="isInputBox" />
   <app-text-box  [isInputBox]="isInputBox" />
   <app-lower-controls
