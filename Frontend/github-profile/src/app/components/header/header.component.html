@@ -1,0 +1,20 @@
+@if (developerData) {
+  <header class="flex items-center py-2">
+    <div class="w-28 h-28 aspect-square bottom-5 rounded-3xl p-2 bg-[#20293A]">
+      <img
+        [srcset]="developerData.avatar_url"
+        class="rounded-xl object-cover top-0"
+        alt="developer photo"
+        fill
+      >
+    </div>
+
+    <ul class="flex flex-wrap gap-4">
+      @for (item of dataTagsUser | keyvalue; track $index) {
+        <app-tag-info
+          [dataTag]="{ label:item.key, info: item.value }"
+        />
+      }
+    </ul>
+  </header>
+}
