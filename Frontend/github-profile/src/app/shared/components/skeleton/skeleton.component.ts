@@ -2,17 +2,15 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-search-box',
+  selector: 'app-skeleton',
   standalone: true,
   imports: [
     CommonModule,
   ],
-  templateUrl: './searchBox.component.html',
-  styles: `:host { display: contents; }`,
+  templateUrl: './skeleton.component.html',
+  styles: `
+    :host { display: contents; }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchBoxComponent {
-  public search (): void {
-    console.log('check');
-  }
-}
+export class SkeletonComponent { }

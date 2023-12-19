@@ -12,8 +12,7 @@ module.exports = {
         'primary': '#CDD5E0',
         'complementary': '#4A5567',
         'page': '#20293A'
-      }
+      },
     },
   },
-  plugins: [],
 }

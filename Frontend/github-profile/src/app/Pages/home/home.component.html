@@ -1,2 +1,12 @@
 <app-banner />
-<app-user-info [developerData]="developerData()" />
+<code class="text-white">
+  <pre>
+    {{user | json}}
+  </pre>
+</code>
+<main class="max-w-6xl mx-auto sm:px-12">
+  <app-user-info
+    [developerData]="developerData()"
+    [repositoryData]="repositoryData"
+    />
+</main>

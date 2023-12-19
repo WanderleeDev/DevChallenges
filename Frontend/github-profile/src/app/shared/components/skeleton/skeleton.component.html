@@ -1,0 +1,27 @@
+<section>
+  <header class="flex flex-wrap sm:flex-nowrap gap-x-8 py-3 sm:gap-12 items-start ">
+    <div class="w-28 h-28 sm:w-32 sm:h-32 aspect-square bottom-5 rounded-3xl p-2 bg-gray-400 -translate-y-2/4 bg-gradient-to-r from-gray-200 to-gray-400 animate-pulse">
+    </div>
+
+    <ul class="flex flex-wrap gap-4">
+      @for (item of ['', '', '']; track $index) {
+        <div class="bg-[#111629] flex p-6 rounded-xl w-max font-medium bg-gradient-to-r from-gray-200 to-gray-400 animate-pulse min-w-[10rem]"></div>
+      }
+    </ul>
+  </header>
+
+  <section class="grid gap-4 min-h-[100dvh]">
+    <header class=" py-8 flex flex-col gap-2">
+      <h1 class="rounded-xl h-8 w-32 bg-gray-400 -translate-y-2/4 bg-gradient-to-r from-gray-200 to-gray-400 animate-pulse"> </h1>
+      <p class="rounded-xl h-4 bg-gray-400 -translate-y-2/4 bg-gradient-to-r from-gray-200 to-gray-400 animate-pulse"></p>
+    </header>
+
+    <div class="grid gap-12 md:grid-cols-2">
+
+      @for (item of ['', '', '', '']; track $index) {
+        <div class="min-h-[10rem] bg-gray-400 -translate-y-2/4 bg-gradient-to-r from-gray-200 to-gray-400 animate-pulse rounded-xl"></div>
+      }
+
+    </div>
+  </section>
+</section>

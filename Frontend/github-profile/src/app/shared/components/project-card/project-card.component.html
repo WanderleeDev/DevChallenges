@@ -1,10 +1,27 @@
-<article>
-  <h2>
+@if (repository) {
+  <a
+    class="min-h-[10rem] bg-[#1B1A44] p-4 rounded-2xl flex flex-col gap-2 justify-between sm:p-6 group"
+    [href]="repository.html_url"
+    target="_blank"
+    rel="noopener noreferrer">
 
-  </h2>
-  <p>
+    <h2 class="font-medium text-xl">
+      {{repository.name}}
+    </h2>
 
-  </p>
+    <p class="text-sm font-medium text-slate-400 max-character max-h-[5rem] overflow-y-hidden group-hover:custom-scroll tracking-widest">
+      {{repository.description ?? 'Empty description'}}
+    </p>
 
-  
-</article>
+    <app-info-complementary
+      [repositoryTags]="{
+        stargazers_count: repository.stargazers_count,
+        license: repository.license,
+        forks_count: repository.forks_count,
+        updated_at: repository.updated_at,
+        languages_url: repository.languages_url
+      }"
+    />
+  </a>
+}
+
