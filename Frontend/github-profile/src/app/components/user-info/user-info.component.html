@@ -1,4 +1,4 @@
-@defer (when developerData !== null) {
+<!-- @defer (when developerData !== null) {
   <app-header [developerData]="developerData"/>
 
   <app-grid-gallery [urlRepositoriesUsers]="developerData?.repos_url ?? null">
@@ -11,5 +11,14 @@
 
 } @placeholder (minimum 500ms) {
   <app-skeleton />
-}
+} -->
 
+<app-header [developerData]="developerData"/>
+
+<app-grid-gallery [urlRepositoriesUsers]="developerData?.repos_url ?? null">
+  @for (repository of repositoryData; track $index) {
+    <app-project-card [repository]="repository" />
+  } @empty {
+    <p>No data</p>
+  }
+</app-grid-gallery>
