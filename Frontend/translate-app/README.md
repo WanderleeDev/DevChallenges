@@ -107,5 +107,5 @@ Project developed following [devChallenges.io](https://devchallenges.io/) specif
 
 ## Contact
 
-- GitHub [WanderleeDev](https://github.com/varJonathanR)
+- GitHub [WanderleeDev](https://github.com/WanderleeDev)
 - LinkedIn [Wanderlee Max Gutierrez Gamboa](https://www.linkedin.com/in/wanderlee-max/)
