@@ -24,7 +24,6 @@ import { IUserRepositories } from '../../interface/IUserRepositories.interface';
 })
 
 export class UserInfoComponent {
-  @Input({required: true}) developerData: IUsersGithub | null = null;
+  @Input({required: true}) developerData: IUsersGithub | null = null ;
   @Input({required: true}) repositoryData: IUserRepositories[] | null = null;
-
 }

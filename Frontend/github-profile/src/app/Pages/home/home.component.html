@@ -1,13 +1,10 @@
 <app-banner />
-<code class="text-white">
-  <pre>
-    {{user | json}}
-  </pre>
-</code>
-<button (click)="clic()" class="bg-white w-20 h-10">click</button>
+
 <main class="max-w-6xl mx-auto sm:px-12">
-  <app-user-info
-    [developerData]="developerData()"
-    [repositoryData]="repositoryData"
-    />
+  <ng-container *ngIf="allDataUser | async as allData">
+    <app-user-info
+      [developerData]="allData.user"
+      [repositoryData]="allData.repositories"
+      />
+  </ng-container>
 </main>

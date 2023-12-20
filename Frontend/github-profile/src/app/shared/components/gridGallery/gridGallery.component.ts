@@ -16,21 +16,9 @@ import { IUserRepositories } from '../../../interface/IUserRepositories.interfac
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class GridGalleryComponent {
   @Input({required: true}) urlRepositoriesUsers: string | null = null
+  @Input({required: true}) user = {name: '', bio: ''}
   repositories: IUserRepositories | null = null;
-
-  // ngOnInit(): void {
-  //   fetch('https://api.github.com/users/WanderleeDev/repos')
-  //     .then((res: Response ): Promise<IUserRepositories>  => {
-  //       return match(res.ok)
-  //       .with(true, ():Promise<IUserRepositories> => res.json())
-  //       .otherwise(() => { throw new Error('Error')} )
-  //     })
-  //     .then(data => this.repositories = data)
-  //     .catch((err: Error) => {
-  //       console.log(err.message);
-  //       this.repositories = null;
-  //     })
-  // }
 }

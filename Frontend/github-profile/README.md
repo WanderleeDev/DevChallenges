@@ -1,27 +1,101 @@
-# GithubProfile
+# Github Profile - DevChallenges
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+![Github Profile Preview](https://www.dropbox.com/scl/fi/6yek6r2qyepibus5uutze/translateApp.png?rlkey=2boqblblmgm1xy6o2pdlw5of0&raw=1)
 
-## Development server
+ - [Demo page]()
+ 
+Project developed following [devChallenges.io](https://devchallenges.io/) specifications.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Built With
 
-## Code scaffolding
+- Angular 17
+- Typescript
+- TailwindCss
+- Translator API by [My Memory](https://mymemory.translated.net/doc/spec.php)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Folder Structure
 
-## Build
+```
+└── 📁github-profile
+    └── .editorconfig
+    └── .eslintrc.json
+    └── README.md
+    └── package.json
+    └── pnpm-lock.yaml
+    └── 📁src
+        └── 📁app
+            └── 📁Pages
+                └── 📁home
+                    └── home.component.html
+                    └── home.component.ts
+                └── 📁notFound
+                    └── notFound.component.html
+                    └── notFound.component.ts
+            └── app.component.ts
+            └── app.config.ts
+            └── 📁components
+                └── 📁banner
+                    └── banner.component.html
+                    └── banner.component.ts
+                └── 📁header
+                    └── header.component.html
+                    └── header.component.ts
+                └── 📁user-info
+                    └── user-info.component.html
+                    └── user-info.component.ts
+            └── 📁interface
+                └── IAllDataUser.interface.ts
+                └── IUserGithub.interface.ts
+                └── IUserRepositories.interface.ts
+            └── 📁services
+                └── CustomError.service.ts
+                └── userGithub.service.ts
+            └── 📁shared
+                └── 📁components
+                    └── 📁btn-gradient
+                        └── btn-gradient.component.ts
+                    └── 📁gridGallery
+                        └── gridGallery.component.html
+                        └── gridGallery.component.ts
+                    └── 📁info-complementary
+                        └── info-complementary.component.html
+                        └── info-complementary.component.ts
+                    └── 📁project-card
+                        └── project-card.component.html
+                        └── project-card.component.ts
+                    └── 📁searchBox
+                        └── searchBox.component.html
+                        └── searchBox.component.ts
+                    └── 📁skeleton
+                        └── skeleton.component.html
+                        └── skeleton.component.ts
+                    └── 📁tagInfo
+                        └── tagInfo.component.html
+                        └── tagInfo.component.ts
+                └── 📁helpers
+                └── 📁pipes
+                    └── date-difference.pipe.ts
+                    └── obj-entries.pipe.ts
+        └── 📁assets
+            └── 📁img
+                └── Chield_alt.svg
+                └── Nesting.svg
+                └── Search.svg
+                └── Star.svg
+                └── hero-image-github-profile.png
+                └── hero.webp
+        └── favicon.ico
+        └── index.html
+        └── main.ts
+        └── styles.css
+    └── tailwind.config.js
+    └── tsconfig.app.json
+    └── tsconfig.json
+    └── tsconfig.spec.json
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Contact
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- GitHub [WanderleeDev](https://github.com/WanderleeDev)
+- LinkedIn [Wanderlee Max Gutierrez Gamboa](https://www.linkedin.com/in/wanderlee-max/)

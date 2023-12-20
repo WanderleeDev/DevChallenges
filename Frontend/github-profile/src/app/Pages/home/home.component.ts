@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BannerComponent } from '../../components/banner/banner.component';
 import { UserInfoComponent } from '../../components/user-info/user-info.component';
+import { Observable } from 'rxjs';
 //  services
 import { UserGithubService } from '../../services/userGithub.service';
 // interface
-import { IUsersGithub } from '../../interface/IUserGithub.interface';
-import { IUserRepositories } from '../../interface/IUserRepositories.interface';
+import { IDataUser } from '../../interface/IAllDataUser.interface';
 
 @Component({
   selector: 'app-home',
@@ -21,25 +21,12 @@ import { IUserRepositories } from '../../interface/IUserRepositories.interface';
   styles: `:host { display: contents; }`,
 })
 
-export default class HomeComponent  {
-  developerData = signal<IUsersGithub | null>(null)
-  repositoryData : IUserRepositories[] | null = null;
+export default class HomeComponent implements OnInit {
+  allDataUser?: Observable<IDataUser | null>;
 
-  user = this.userGithubSvc.computedState();
+  constructor(private userGithubSvc: UserGithubService) {}
 
-  constructor (
-    private userGithubSvc: UserGithubService,
-  ) {
-    effect(() => {
-      const url  = userGithubSvc.computedState()?.repos_url
-      if (url !== null && url !== undefined) {
-        this.userGithubSvc.getRepositories(url)
-          .then(data =>  this.repositoryData = data)
-      }
-    })
-  }
-
-  clic() {
-    console.log(this.user);
+  ngOnInit(): void {
+    this.allDataUser = this.userGithubSvc.getDataUser$()
   }
 }

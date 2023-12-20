@@ -1,8 +1,12 @@
 @if (urlRepositoriesUsers) {
   <section>
     <header class="py-8 flex flex-col gap-2">
-      <h1 class="text-4xl">Name</h1>
-      <p class="text-slate-400">Bio</p>
+      <h1 class="text-4xl">
+        {{user.name}}
+      </h1>
+      <p class="text-slate-400">
+        {{user.bio || 'The user did not provide a description'}}
+      </p>
     </header>
 
     <div class="grid gap-12 md:grid-cols-2">
