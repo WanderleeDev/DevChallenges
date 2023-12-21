@@ -1,10 +1,22 @@
 <app-banner />
 
-<main class="max-w-6xl mx-auto sm:px-12">
-  <ng-container *ngIf="allDataUser | async as allData">
-    <app-user-info
-      [developerData]="allData.user"
-      [repositoryData]="allData.repositories"
-      />
-  </ng-container>
+<main class="max-w-6xl mx-auto px-2 sm:px-12">
+
+  @defer (when !allDataUser.loading ) {
+
+    @if (allDataUser.user && allDataUser.error === null) {
+      <app-user-info
+        [developerData]="allDataUser.user"
+        [repositoryData]="allDataUser.repositories"
+        />
+    } @else if (allDataUser.loading === true && allDataUser.error === null) {
+      <app-loader />
+    } @else if (allDataUser.error !== null) {
+      <app-error-request [messageError]="allDataUser.error" />
+    }
+
+  } @placeholder (minimum 1000ms) {
+    <app-skeleton />
+  }
+
 </main>

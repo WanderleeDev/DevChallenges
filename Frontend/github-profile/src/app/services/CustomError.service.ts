@@ -1,13 +1,15 @@
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CustomErrorService {
-  public handleCustomHttpError (error: HttpErrorResponse) {
+  public handleCustomHttpError (error: HttpErrorResponse): Observable<never> {
     const timestamp = new Date().toLocaleString();
+    console.log(error);
 
     switch (error.status) {
       case HttpStatusCode.Conflict :

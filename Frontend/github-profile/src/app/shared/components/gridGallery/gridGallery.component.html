@@ -1,8 +1,7 @@
-@if (urlRepositoriesUsers) {
   <section>
     <header class="py-8 flex flex-col gap-2">
       <h1 class="text-4xl">
-        {{user.name}}
+        {{user.name || 'The user did not provide a name'}}
       </h1>
       <p class="text-slate-400">
         {{user.bio || 'The user did not provide a description'}}
@@ -22,4 +21,3 @@
       </button>
     </div>
   </section>
-}

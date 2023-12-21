@@ -1,17 +1,12 @@
-@defer (when developerData !== null) {
-  <app-header [developerData]="developerData"/>
+<app-header [developerData]="developerData"/>
 
-  <app-grid-gallery
-    [urlRepositoriesUsers]="developerData?.repos_url ?? null"
-    [user]="{name: developerData?.name ?? '', bio: developerData?.bio ?? ''}"
-  >
-    @for (repository of repositoryData; track $index) {
-      <app-project-card [repository]="repository" />
-    } @empty {
-      <p>No data</p>
-    }
-  </app-grid-gallery>
+<app-grid-gallery
+  [user]="{name: developerData?.name ?? '', bio: developerData?.bio ?? ''}"
+>
+  @for (repository of repositoryData; track $index) {
+    <app-project-card [repository]="repository" />
+  } @empty {
+    <p>No data</p>
+  }
+</app-grid-gallery>
 
-} @placeholder (minimum 500ms) {
-  <app-skeleton />
-}

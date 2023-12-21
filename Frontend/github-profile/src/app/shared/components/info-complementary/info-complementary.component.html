@@ -1,30 +1,33 @@
-<ul class="flex gap-4">
+<div class="flex flex-wrap items-center gap-4">
 
-  @if (repositoryTags.license) {
-    <li class="flex gap-1 items-center">
-      <img src="assets/img/Chield_alt.svg" alt="logo license" aria-hidden="true">
-      <span>MIT</span>
-    </li>
-  }
+  <ul class="flex gap-4">
 
-  @if (repositoryTags.forks_count) {
-    <li class="flex gap-1 items-center">
-      <img src="assets/img/Nesting.svg" alt="logo license" aria-hidden="true">
-      <span>{{repositoryTags.forks_count}}</span>
-    </li>
-  }
+    @if (repositoryTags.license) {
+      <li class="flex gap-1 items-center">
+        <img src="assets/img/Chield_alt.svg" alt="logo license" aria-hidden="true">
+        <span>MIT</span>
+      </li>
+    }
 
-  @if (repositoryTags.forks_count) {
-    <li class="flex gap-1 items-center">
-      <img src="assets/img/Star.svg" alt="logo license" aria-hidden="true">
-      <span>{{repositoryTags.stargazers_count}}</span>
-    </li>
-  }
+    @if (repositoryTags.forks_count) {
+      <li class="flex gap-1 items-center">
+        <img src="assets/img/Nesting.svg" alt="logo license" aria-hidden="true">
+        <span>{{repositoryTags.forks_count}}</span>
+      </li>
+    }
 
+    @if (repositoryTags.forks_count) {
+      <li class="flex gap-1 items-center">
+        <img src="assets/img/Star.svg" alt="logo license" aria-hidden="true">
+        <span>{{repositoryTags.stargazers_count}}</span>
+      </li>
+    }
+
+  </ul>
   @if (repositoryTags.updated_at) {
-    <li class="flex gap-1 items-center text-xs pl-4">
+    <span class=" flex gap-1 items-center text-xs">
       {{repositoryTags.updated_at | dateDifference}}
-    </li>
+    </span>
   }
 
-</ul>
+</div>

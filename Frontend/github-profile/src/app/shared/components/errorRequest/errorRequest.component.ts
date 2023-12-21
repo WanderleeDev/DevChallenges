@@ -2,20 +2,15 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-grid-gallery',
+  selector: 'app-error-request',
   standalone: true,
   imports: [
     CommonModule,
   ],
-  templateUrl: './gridGallery.component.html',
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
+  templateUrl: './errorRequest.component.html',
+  styles: `:host { display: contents;}`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
-export class GridGalleryComponent {
-  @Input({required: true}) user = {name: '', bio: ''}
+export class ErrorRequestComponent {
+  @Input({required: true}) messageError ='Ops something wrong'
 }
