@@ -3,10 +3,15 @@
 <app-grid-gallery
   [user]="{name: developerData?.name ?? '', bio: developerData?.bio ?? ''}"
 >
-  @for (repository of repositoryData; track $index) {
+  @for (repository of copyRepositories; track repository.id) {
     <app-project-card [repository]="repository" />
   } @empty {
     <p>No data</p>
   }
 </app-grid-gallery>
 
+@if (copyRepositories.length < repositoryData.length) {
+  <app-btn-vanilla (click)="updateListProjects()"/>
+}@else {
+  <div class="h-10" aria-hidden="true"></div>
+}

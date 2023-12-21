@@ -1,4 +1,5 @@
   <section>
+
     <header class="py-8 flex flex-col gap-2">
       <h1 class="text-4xl">
         {{user.name || 'The user did not provide a name'}}
@@ -12,12 +13,4 @@
       <ng-content />
     </div>
 
-    <div class="py-12">
-      <button
-        class="text-slate-400 mx-auto block hover:underline"
-        type="button"
-      >
-        View all repositories
-      </button>
-    </div>
   </section>

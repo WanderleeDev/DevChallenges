@@ -16,5 +16,5 @@ import { IUserRepositories } from '../../../interface/IUserRepositories.interfac
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectCardComponent {
-  @Input({required: true}) repository: IUserRepositories | null = null;
+  @Input({required: true}) repository!: IUserRepositories;
 }

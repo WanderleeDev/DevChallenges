@@ -47,7 +47,6 @@ export class UserGithubService  {
       error: (err: HttpErrorResponse) => {
         this.handleError(err)
         console.log('aquí si');
-
       }
     })
   }

@@ -4,14 +4,14 @@
 
   @defer (when !allDataUser.loading ) {
 
-    @if (allDataUser.user && allDataUser.error === null) {
+    @if (!allDataUser.loading && allDataUser.error === null) {
       <app-user-info
         [developerData]="allDataUser.user"
         [repositoryData]="allDataUser.repositories"
         />
     } @else if (allDataUser.loading === true && allDataUser.error === null) {
       <app-loader />
-    } @else if (allDataUser.error !== null) {
+    } @else if (!allDataUser.loading && allDataUser.error !== null) {
       <app-error-request [messageError]="allDataUser.error" />
     }
 
